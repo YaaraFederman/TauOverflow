@@ -1,24 +1,19 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import CourseList from './HomePage/Courses/CourseList'
+import { Typography } from '@mui/material';
 
-function App() {
+const App = () => {
+  const [isButtonShow, setIsButtonShow] = useState(false)
+
+  const showButton = () => setIsButtonShow(true)
+  const removeButton = () => setIsButtonShow(false)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Typography variant='h2'>Courses List</Typography>
+      <CourseList showButton={showButton} removeButton={removeButton} />
+    </>
   );
 }
 
